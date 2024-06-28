@@ -13,4 +13,10 @@ class TanyaFT extends BaseController
         echo view('tanyaft/pengajuan');
         
     }
+    public function tanggapan(){
+        echo view('tanyaft/tanggapan');
+    }
+    public function detailPengajuan(){
+        echo view('tanyaft/detailPengajuan');
+    }
 }
