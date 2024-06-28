@@ -4,8 +4,12 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function dashboard()
     {
-        return view('welcome_message');
+        return view('dashboard');
+    }
+    public function e_response()
+    {
+        return view('e_response');
     }
 }
