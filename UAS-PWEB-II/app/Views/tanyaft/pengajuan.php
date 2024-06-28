@@ -48,6 +48,31 @@
             padding-top: 60px; /* Tambahkan padding top untuk memberikan ruang pada header */
             padding-left: 20px;
         }
+        .file-input-wrapper {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 100%;
+    
+        }
+        .file-input-wrapper .btn {
+            background-color:deepskyblue; 
+            color: white;
+            border: none;
+            border-radius: 0;
+            padding: 10px 20px;
+        }
+        .file-input-wrapper input[type="file"] {
+            display: none;
+        }
+        .file-input-wrapper .file-label {
+        
+            padding: 10px 20px;
+            color: #6c757d;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -114,56 +139,43 @@
         <div class="card content flex-grow-1 p-3" style="margin-left: 320px; margin-right:40px; width:auto; margin-top:100px; box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);">
             <div class="d-flex flex-row" style="align-items: center;">
                 <img src="/images/arrow.png" style="width: 30px;" alt="">
-                <h6 class="fw-bold m-0" style="color:deepskyblue;">Kembali</h6>
+                <a href="<?= base_url('/') ?>" style="text-decoration: none;"><h6 class=" fw-bold m-0" style="color:deepskyblue;">Kembali</h6></a>
             </div>
             <hr>
             <header class="d-flex flex-row justify-content-center">
-                <img src="/images/Tanya FT.png" alt="" style="margin-bottom: 20px; margin-right:20px;">
                 <div class="align-content-center">
-                    <h4 class="fw-bold">Tanya FT</h4>
-                    <p>Layanan ini disediakan untuk menyampaikan permohonan informasi publik terkait Fakultas Teknik ULM</p>
-                </div>
-                
+                    <h4 class="fw-bold mb-5">Tambah Pengajuan Tanya FT</h4>
+                </div>    
             </header>
-            <section>
-                <h6 class="fw-bold">Deskripsi</h6>
-                <p class="text-secondary"><strong>TANYA FT</strong> merupakan Layanan Informasi Publik FT ULM. Layanan ini disediakan bagi para pihak untuk menyampaikan permohonan informasi publik terkait Fakultas Teknik Universitas Lambung Mangkurat. Setiap permohonan dikelola oleh Unit Layanan Administrasi Terpadu FT ULM sebagai pelaksana tugas Pejabat Pengelola Informasi dan Dokumentasi (PPID) FT ULM dan didistribusikan kepada Kelompok Kerja (POKJA) yang berkaitan atau langsung kepada Pimpinan FT ULM secara daring (online). Jawaban/Tanggapan dapat dipantau melalui fitur status pengajuan.</p>
-            </section>
-            <section>
-                <h6 class="fw-bold">Alur Pengajuan</h6>
-                <ol class="text-secondary">
-                    <li>Mahasiswa mengisi data pertanyaan</li>
-                    <li>Admin Akademik akan menanggapi pertanyaan tersebut</li>
-                    <li>Tanggapan dapat dilihat melalui tabel pengajuan</li>
-                </ol>
-            </section>
             <section class="d-flex flex-column">
-                <h6 class="fw-bold">
-                    Tabel Pengajuan
-                </h6>
-                <a class="ms-auto m-2" href="<?= base_url('pengajuan/tambah') ?>"><button class="btn btn-primary " type="submit">+  Tambah Pengajuan</button></a>
-                <table class="table">
-                <thead class="table-secondary align-middle" style="height: 60px;">
-                    <tr>
-                    <th scope="col" class="text-secondary">No</th>
-                    <th scope="col" class="text-secondary">ID Pengajuan</th>
-                    <th scope="col" class="text-secondary">Jenis Pengajuan</th>
-                    <th scope="col" class="text-secondary">Tanggal Pengajuan</th>
-                    <th scope="col" class="text-secondary">Status</th>
-                    <th scope="col" class="text-secondary">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Disetujui</td>
-                    <td>Tambah</td>
-                    </tr>
-                </tbody>
-                </table>
+                <form action="" class="d-flex flex-column">
+                    <label class="fw-bold" for="nama">Nama Lengkap <span class="text-danger"> *</span></label> 
+                    <input class="form-control mb-4" style="background-color: #e9ecef; padding:15px;" type="text" name="nama" placeholder="" required>
+                    <label class="fw-bold" for="nim">NIM <span class="text-danger"> *</span></label> 
+                    <input class="form-control mb-4" style="background-color: #e9ecef; padding:15px;" type="text" name="nim" placeholder="" required>
+                    <label class="fw-bold" for="prodi">Program Studi <span class="text-danger"> *</span></label> 
+                    <input class="form-control mb-4 " style="background-color: #e9ecef; padding:15px;" type="text" name="prodi" placeholder="" required>
+                    <label class="fw-bold" for="pertanyaan">Pertanyaan <span class="text-danger"> *</span></label> 
+                    <textarea class="form-control mb-4"  name="pertanyaan" rows="7" id="" placeholder="masukkan pertanyaan" required></textarea>
+                    <div class="container p-0">
+                        <span class="fw-bold">Berkas Pendukung</span>
+                        <div class="file-input-wrapper">
+                            <button class="btn" type="button">Choose file</button>
+                            <label class="file-label" for="fileInput">Drag and drop a file here or click</label>
+                            <input type="file" id="fileInput">
+                        </div>
+                    </div>
+                    <span class="text-secondary" style="font-size:12px; font-style:italic;">* Uploaded file dengan format jpg, png, jpeg, maksimal 2MB</span>
+                    <div class="ms-auto mt-5">
+                        <button class="btn p-2" style="width: 150px; border:1px solid black;">
+                            Batal
+                        </button>
+                        <button class="btn p-2" style="width: 150px; background-color:deepskyblue; color:white;">
+                            Kirim
+                        </button>
+                    </div>
+                </form>
+               
             </section>
         </div>
     </div>

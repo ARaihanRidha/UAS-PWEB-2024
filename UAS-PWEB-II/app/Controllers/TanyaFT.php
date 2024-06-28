@@ -9,4 +9,8 @@ class TanyaFT extends BaseController
     public function index(){
         echo view('tanyaft/index');
     }
+    public function pengajuan(){
+        echo view('tanyaft/pengajuan');
+        
+    }
 }
