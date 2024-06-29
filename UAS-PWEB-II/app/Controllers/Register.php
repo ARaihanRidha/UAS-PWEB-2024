@@ -76,6 +76,6 @@ class Register extends BaseController
             'no_handphone' => $this->request->getVar('no_handphone')
         ]);
 
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 }

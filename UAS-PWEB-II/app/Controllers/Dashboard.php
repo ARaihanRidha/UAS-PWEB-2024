@@ -1,36 +1,39 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Dashboard extends BaseController {
-
-    public function dashboard() {
+namespace App\Controllers;
+use App\Models\UsersModel;
+class Dashboard extends BaseController
+{
+    public function index()
+    {
         // Load session library
-        $this->load->library('session');
+        $session = \Config\Services::session();
 
         // Get username from session
-        $username = $this->session->userdata('username');
+        $username = $session->get('username');
 
         // Check if username exists in session
         if (empty($username)) {
             // Redirect to login page or show an error
-            redirect('login');
+            return redirect()->to('/');
         }
 
-        // Load model
-        $this->load->model('User_model');
+        // Load UsersModel
+        $usersModel = new UsersModel();
 
         // Get user data from the model
-        $user = $this->User_model->get_user_by_username($username);
+        $user = $usersModel->getUserByUsername($username);
 
         // Check if user data is retrieved
         if (!$user) {
             // Handle error or redirect
-            show_error('User not found');
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('User not found');
         }
 
         // Pass user data to the view
-        $data['nama_lengkap'] = $user->nama_lengkap;
+        $data['nama_lengkap'] = $user['nama_lengkap'];
 
-        $this->load->view('dashboard', $data);
+        // Load view with data
+        return view('dashboard', $data);
     }
 }
+?>

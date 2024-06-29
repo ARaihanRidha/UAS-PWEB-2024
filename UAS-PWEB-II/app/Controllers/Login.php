@@ -26,7 +26,7 @@ class Login extends BaseController
 
         if (!$validation->withRequest($this->request)->run()) {
             session()->setFlashdata('error', 'Username dan password harus diisi.');
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
 
         // Cari pengguna berdasarkan username
@@ -38,16 +38,17 @@ class Login extends BaseController
                 // Set session data
                 session()->set([
                     'username' => $userData['username'],
+                    'nama_lengkap' => $userData['nama_lengkap'],
                     'logged_in' => true
                 ]);
-                return redirect()->to(base_url('home'));
+                return redirect()->to(base_url('dashboard'));
             } else {
                 session()->setFlashdata('error', 'Password salah.');
             }
         } else {
             session()->setFlashdata('error', 'Username atau Password salah.');
         }
-        return redirect()->back();
+        return redirect()->back()->withInput();
     }
 
     public function logout()

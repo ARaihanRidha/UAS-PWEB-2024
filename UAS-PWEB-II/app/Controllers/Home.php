@@ -1,10 +1,15 @@
 <?php
+
 namespace App\Controllers;
-class Home extends BaseController{
-    public function index()
+
+class Home extends BaseController
+{
+    public function dashboard()
     {
-        // Load view halaman_buku
-        return view('halaman_test');
+        return view('dashboard');
+    }
+    public function e_response()
+    {
+        return view('e_response');
     }
 }
-

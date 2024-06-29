@@ -136,7 +136,7 @@
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-left: 5px; z-index: 1100; position: sticky; top: 0; width: 100%; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);">
-        <img class="m-2" src="<?= base_url('img/ulm.jpg') ?>" style="width: 40px;" alt="">
+        <img class="m-2" src="<?= base_url('img/ulm.png') ?>" style="width: 40px;" alt="">
         <div class="d-flex flex-column">
             <a class="navbar-brand p-0" style="font-size: 15px; font-weight:bold;" href="#">Fakultas Teknik</a>
             <a class="navbar-brand p-0 text-secondary" style="font-size: 10px;" href="#">Universitas Lambung Mangkurat</a>
@@ -197,7 +197,7 @@
                 </li>
                 <li class="nav-item">
                     <img src="<?= base_url('img/logout.jpg') ?>" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="<?= base_url('halaman_login') ?>">Logout</a>
+                    <a class="nav-link text-secondary" href="<?= base_url('/logout') ?>">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -217,7 +217,7 @@
                 </div>
             </div>
             <div class="welcome">
-                <h4><b>Selamat Datang <?= isset($nama_lengkap) ? $nama_lengkap : 'User' ?>!</b></h4>
+                <h4><b>Selamat Datang <?= session()->get('nama_lengkap') ?>!</b></h4>
                 <p>Di website ini kamu dapat mengajukan layanan dan<br>mengecek status pengajuannya</br></p>
             </div>
 

@@ -1,9 +1,13 @@
+<?php
+
+use PhpParser\Node\Stmt\Echo_;
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-Response</title>
+    <title>Tanya FT</title>
     <link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
     <style>
@@ -48,69 +52,60 @@
             padding-top: 60px; /* Tambahkan padding top untuk memberikan ruang pada header */
             padding-left: 20px;
         }
-        .kartu {
+        .file-input-wrapper {
             display: flex;
-            justify-content: left;
-            margin-left: 10px;
-        }
-        .response {
-            width: 330px;
-            height: 245px;
-            margin-right: 25px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
             overflow: hidden;
-        }
-        .response img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+    
         }
-        .response-content {
-            text-align: center;
+        .file-input-wrapper .btn {
+            background-color:deepskyblue; 
+            color: white;
+            border: none;
+            border-radius: 0;
+            padding: 10px 20px;
         }
-        .sort {
-            text-align: right;
-            margin-bottom: 20px;
-            color: grey;
+        .file-input-wrapper input[type="file"] {
+            display: none;
         }
-        .sort select {
-            padding: 15px;
-            font-size: 14px;
-            color: rgb(128, 128, 128, 0.5);
-            border-radius: 10px;
-            margin-right: 70px;
+        .file-input-wrapper .file-label {
+        
+            padding: 10px 20px;
+            color: #6c757d;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-left: 5px; z-index: 1100; position: sticky; top: 0; width: 100%; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);">
-        <img class="m-2" src="<?= base_url('img/ulm.jpg') ?>" style="width: 40px;" alt="">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-left: 5px; z-index: 1100; position: fixed; width: 100%; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);">
+        <img class="m-2" src="/img/ulm.jpg" style="width: 40px;" alt="">
         <div class="d-flex flex-column">
             <a class="navbar-brand p-0" style="font-size: 15px; font-weight:bold;" href="#">Fakultas Teknik</a>
             <a class="navbar-brand p-0 text-secondary" style="font-size: 10px;" href="#">Universitas Lambung Mangkurat</a>
         </div>
 
         <div class="m-2 ps-5" style="width: 300px;">
-            <img src="<?= base_url('img/search.jpg') ?>" class="" style="width: 20px;" alt="">
+            <img src="/img/search.jpg" class="" style="width: 20px;" alt="">
             <p class="d-inline p-2 text-secondary">Cari Layanan...</p>
         </div>
         <div class="d-flex flex-row ms-auto justify-content-center" style="margin-right: 90px;">
-            <img class="m-2" src="<?= base_url('img/bell.jpg') ?>" style="width: 30px; height:auto;" alt="">
-            <img class="m-2" src="<?= base_url('img/user.jpg') ?>" style="width: 30px;" alt="">
+            <img class="m-2" src="/img/bell.jpg" style="width: 30px; height:auto;" alt="">
+            <img class="m-2" src="/img/user.jpg" style="width: 30px;" alt="">
             <p class="fs-6 m-2 text-center">Kelompok 10</p>
         </div>
     </nav>
     
     <div class="d-flex">
-        <nav class="sidebar p-3" style="margin-top: 74px; width:max-content;">
+    <nav class="sidebar p-3" style="margin-top: 74px; width:max-content;">
             <h6 class="text-secondary text-start ps-3">Menu</h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <img src="<?= base_url('img/menu.jpg') ?>" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="<?= base_url('/dashboard') ?>">Dashboard</a>
+                    <a class="nav-link text-secondary" href="<?= base_url('dashboard') ?>">Dashboard</a>
                 </li>
                 <h6 class="text-secondary text-start p-3">Layanan</h6>
                 <li class="nav-item">
@@ -123,7 +118,7 @@
                 </li>
                 <li class="nav-item active">
                     <img src="<?= base_url('img/desktop.jpg') ?>" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="<?= base_url('/e_response') ?>">e-Response</a>
+                    <a class="nav-link text-secondary" href="<?= base_url('e_response') ?>">e-Response</a>
                 </li>
                 <li class="nav-item">
                     <img src="<?= base_url('img/website.jpg') ?>" style="width: 23px;" alt="">
@@ -149,32 +144,51 @@
                 <li class="nav-item">
                     <img src="<?= base_url('img/logout.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="<?= base_url('/logout') ?>">Logout</a>
-
                 </li>
             </ul>
         </nav>
-        <div class="card content flex-grow-1 p-3" style="margin-left: 320px; margin-right:40px; width:auto; margin-top:20px; box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);">
-            <header class="d-flex flex-row justify-content-left">
-                <img src="<?= base_url('img/desktop.jpg') ?>" style="width: 40px; height: 40px; margin-top: 15px; margin-left: 30px;" alt="">
-                <div class="align-content-center" style="margin-left: 25px">
-                    <h4 class="fw-bold">Layanan e-Response</h4>
-                    <p>Inovasi Layanan Informasi dan Pengaduan FT ULM</p>
-                </div>
+       
+        <div class="card content flex-grow-1 p-3" style="margin-left: 320px; margin-right:40px; width:auto; margin-top:100px; box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);">
+            <div class="d-flex flex-row" style="align-items: center;">
+                <img src="/img/arrow.png" style="width: 30px;" alt="">
+                <a href="<?= base_url('/tanya-ft') ?>" style="text-decoration: none;"><h6 class=" fw-bold m-0" style="color:deepskyblue;">Kembali</h6></a>
+            </div>
+            <hr>
+            <header class="d-flex flex-row justify-content-center">
+                <div class="align-content-center">
+                    <h4 class="fw-bold mb-5">Tanggapan Tanya FT</h4>
+                </div>    
             </header>
-            <div class="sort">
-                <label for="sort">Urutkan sesuai : </label>
-                <select id="sort">
-                    <option value="name-asc">Nama Layanan (A-Z)</option>
-                </select>
-            </div>
-            <div class="kartu">
-                <div class="response">
-                    <img src="<?= base_url('img/lapor.png') ?>" alt="Lapor FT">
+            <section class="d-flex flex-column">
+                <div class="d-flex flex-row">
+                    <p>
+                        Pertanyaan 
+                    </p>
+                    <p style="margin-left: 20px; margin-right:20px;">
+                        :
+                    </p>
+                    <p>
+                        Apa saja Keuntungan layanan FT ULM yang baru dibuat ini?
+                    </p>
+               </div>
+
+               <div class="d-flex flex-row">
+                <div style="margin-right: 130px;">
                 </div>
-                <div class="response">
-                    <a href="<?= base_url('tanyaft/index') ?>"><img src="<?= base_url('img/tanya.png') ?>" alt="Tanya FT"></a>
-                </div>
-            </div>
+                 <input class="form-control mb-4 w-100" style="background-color: #e9ecef; padding:15px; width:auto" type="text" name="nim" placeholder="" value="Cek File" disabled>
+               </div>
+               <div class="d-flex flex-row">
+                    <p>
+                        Jawaban 
+                    </p>
+                    <p style="margin-left: 35px; margin-right:19px;">
+                        :
+                    </p>
+                    <p>
+                         Website layanan baru FT ULM dirancang untuk memberikan akses yang mudah dan cepat bagi mahasiswa, dosen, dan staf untuk mengakses berbagai layanan akademik dan administratif. Dengan antarmuka yang responsif dan ramah pengguna, pengguna dapat dengan mudah mengajukan permohonan, mengakses informasi akademik, memantau status pengajuan, dan berinteraksi dengan berbagai fitur lainnya secara efisien.
+                    </p>
+               </div>
+            </section>
         </div>
     </div>
     <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>

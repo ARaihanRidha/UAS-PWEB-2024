@@ -49,7 +49,7 @@
                 <a class="pass" href="#">Lupa password?</a>
                 <button class="pindah" type="submit"> Login</button>
             </form>
-            <p class="register">Belum Mempunyai Akun? <b><a class="test" href="<?= base_url(); ?>/register">Daftar</a></b> </p>
+            <p class="register">Belum Mempunyai Akun? <b><a class="test" href="<?= base_url('/register'); ?>">Daftar</a></b> </p>
         </div>
     </div>
     <script src="<?= base_url('js/login.js') ?>"></script>

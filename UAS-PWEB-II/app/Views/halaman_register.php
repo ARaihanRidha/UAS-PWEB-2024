@@ -74,7 +74,7 @@
                 </div>
                 <button type="submit">Daftar</button>
             </form>
-            <p class="register">Sudah Mempunyai Akun? <a href="<?= base_url(); ?>/login">Login</a></p>
+            <p class="register">Sudah Mempunyai Akun? <a href="<?= base_url('/'); ?>">Login</a></p>
         </div>
     </div>
     <script src="<?= base_url('js/register.js') ?>"></script>
