@@ -69,17 +69,27 @@
         .warning a {
             color: #007bff;
         }
-        .welcome img {
-            width: 100%;
+        .welcome {
+            position: relative;
+            width: calc(100% - 20px);
             height: 100%;
+            background: url('<?= base_url('img/welcome.png') ?>');
+            background-size: cover;
             margin-left: 10px;
             margin-top: 15px;
-            padding-right: 20px;
+            border-radius: 10px;
+            padding-left: 30px;
+            padding-top: 50px;
+            padding-bottom: 35px;
+            color: white;
+        }
+        .welcome h4 {
+            margin-bottom: 20px;
         }
         .keterangan {
             color: grey;
             margin-left: 10px;
-            margin-top: 55px;
+            margin-top: 35px;
         }
         .summary {
             display: flex;
@@ -187,7 +197,7 @@
                 </li>
                 <li class="nav-item">
                     <img src="<?= base_url('img/logout.jpg') ?>" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="#logout">Logout</a>
+                    <a class="nav-link text-secondary" href="<?= base_url('halaman_login') ?>">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -207,7 +217,8 @@
                 </div>
             </div>
             <div class="welcome">
-                <img src="<?= base_url('img/welcome.png') ?>" alt="Welcome">
+                <h4><b>Selamat Datang <?= isset($nama_lengkap) ? $nama_lengkap : 'User' ?>!</b></h4>
+                <p>Di website ini kamu dapat mengajukan layanan dan<br>mengecek status pengajuannya</br></p>
             </div>
 
             <p class="keterangan">Ringkasan</p>

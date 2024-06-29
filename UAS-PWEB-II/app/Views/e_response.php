@@ -148,7 +148,7 @@
                 </li>
                 <li class="nav-item">
                     <img src="<?= base_url('img/logout.jpg') ?>" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="#logout">Logout</a>
+                    <a class="nav-link text-secondary" href="<?= base_url('halaman_login') ?>">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -171,7 +171,7 @@
                     <img src="<?= base_url('img/lapor.png') ?>" alt="Lapor FT">
                 </div>
                 <div class="response">
-                    <a href="#Tanya FT"><img src="<?= base_url('img/tanya.png') ?>" alt="Tanya FT"></a>
+                    <a href="<?= base_url('#tanyaft') ?>"><img src="<?= base_url('img/tanya.png') ?>" alt="Tanya FT"></a>
                 </div>
             </div>
         </div>
