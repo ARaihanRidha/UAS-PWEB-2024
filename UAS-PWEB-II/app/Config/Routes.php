@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/dashboard', 'Home::dashboard');
 $routes->get('/e_response', 'Home::e_response');
+$routes->get('/', 'Dashboard::dashboard');
