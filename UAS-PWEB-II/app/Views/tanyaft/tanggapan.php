@@ -100,42 +100,50 @@ use PhpParser\Node\Stmt\Echo_;
     </nav>
     
     <div class="d-flex">
-        <nav class="sidebar p-3" style="margin-top: 74px; width:max-content;">
+    <nav class="sidebar p-3" style="margin-top: 74px; width:max-content;">
             <h6 class="text-secondary text-start ps-3">Menu</h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <img src="/images/menu.png" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="#dashboard">Dashboard</a>
+                    <img src="<?= base_url('img/menu.jpg') ?>" style="width: 23px;" alt="">
+                    <a class="nav-link text-secondary" href="<?= base_url('dashboard') ?>">Dashboard</a>
                 </li>
                 <h6 class="text-secondary text-start p-3">Layanan</h6>
                 <li class="nav-item">
-                    <img src="/images/email.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/email.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#e-services">e-Services</a>
                 </li>
                 <li class="nav-item">
-                    <img src="/images/conversation.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/conversation.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#e-command-center">e-Command Center</a>
                 </li>
                 <li class="nav-item active">
-                    <img src="/images/desktop.png" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="#e-response">e-Response</a>
+                    <img src="<?= base_url('img/desktop.jpg') ?>" style="width: 23px;" alt="">
+                    <a class="nav-link text-secondary" href="<?= base_url('e_response') ?>">e-Response</a>
                 </li>
                 <li class="nav-item">
-                    <img src="/images/website.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/website.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#e-commerce">e-Commerce</a>
                 </li>
                 <li class="nav-item">
-                    <img src="/images/briefcase.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/briefcase.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#e-office">e-Office</a>
                 </li>
                 <h6 class="text-secondary text-start ps-3">Other</h6>
                 <li class="nav-item">
-                    <img src="/images/list.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/list.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#kuesioner">Kuesioner</a>
                 </li>
                 <li class="nav-item">
-                    <img src="/images/question.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/question.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#faq">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <img src="<?= base_url('img/profile.jpg') ?>" style="width: 23px;" alt="">
+                    <a class="nav-link text-secondary" href="#profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <img src="<?= base_url('img/logout.jpg') ?>" style="width: 23px;" alt="">
+                    <a class="nav-link text-secondary" href="<?= base_url('/logout') ?>">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -143,7 +151,7 @@ use PhpParser\Node\Stmt\Echo_;
         <div class="card content flex-grow-1 p-3" style="margin-left: 320px; margin-right:40px; width:auto; margin-top:100px; box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);">
             <div class="d-flex flex-row" style="align-items: center;">
                 <img src="/images/arrow.png" style="width: 30px;" alt="">
-                <a href="<?= base_url('/') ?>" style="text-decoration: none;"><h6 class=" fw-bold m-0" style="color:deepskyblue;">Kembali</h6></a>
+                <a href="<?= base_url('/tanya-ft') ?>" style="text-decoration: none;"><h6 class=" fw-bold m-0" style="color:deepskyblue;">Kembali</h6></a>
             </div>
             <hr>
             <header class="d-flex flex-row justify-content-center">

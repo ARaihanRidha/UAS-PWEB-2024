@@ -48,6 +48,18 @@
             padding-top: 60px; /* Tambahkan padding top untuk memberikan ruang pada header */
             padding-left: 20px;
         }
+        .approved-button {
+            display: inline-block;
+            padding: 6px 30px;
+            background-color: #b2f2bb; /* Warna hijau muda */
+            color: #2f9e44; /* Warna teks hijau */
+            border-radius: 20px; /* Membuat sudut melengkung */
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -75,38 +87,46 @@
             <h6 class="text-secondary text-start ps-3">Menu</h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <img src="/images/menu.png" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="#dashboard">Dashboard</a>
+                    <img src="<?= base_url('img/menu.jpg') ?>" style="width: 23px;" alt="">
+                    <a class="nav-link text-secondary" href="<?= base_url('dashboard') ?>">Dashboard</a>
                 </li>
                 <h6 class="text-secondary text-start p-3">Layanan</h6>
                 <li class="nav-item">
-                    <img src="/images/email.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/email.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#e-services">e-Services</a>
                 </li>
                 <li class="nav-item">
-                    <img src="/images/conversation.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/conversation.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#e-command-center">e-Command Center</a>
                 </li>
                 <li class="nav-item active">
-                    <img src="/images/desktop.png" style="width: 23px;" alt="">
-                    <a class="nav-link text-secondary" href="#e-response">e-Response</a>
+                    <img src="<?= base_url('img/desktop.jpg') ?>" style="width: 23px;" alt="">
+                    <a class="nav-link text-secondary" href="<?= base_url('e_response') ?>">e-Response</a>
                 </li>
                 <li class="nav-item">
-                    <img src="/images/website.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/website.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#e-commerce">e-Commerce</a>
                 </li>
                 <li class="nav-item">
-                    <img src="/images/briefcase.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/briefcase.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#e-office">e-Office</a>
                 </li>
                 <h6 class="text-secondary text-start ps-3">Other</h6>
                 <li class="nav-item">
-                    <img src="/images/list.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/list.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#kuesioner">Kuesioner</a>
                 </li>
                 <li class="nav-item">
-                    <img src="/images/question.png" style="width: 23px;" alt="">
+                    <img src="<?= base_url('img/question.jpg') ?>" style="width: 23px;" alt="">
                     <a class="nav-link text-secondary" href="#faq">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <img src="<?= base_url('img/profile.jpg') ?>" style="width: 23px;" alt="">
+                    <a class="nav-link text-secondary" href="#profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <img src="<?= base_url('img/logout.jpg') ?>" style="width: 23px;" alt="">
+                    <a class="nav-link text-secondary" href="<?= base_url('/logout') ?>">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -114,7 +134,7 @@
         <div class="card content flex-grow-1 p-3" style="margin-left: 320px; margin-right:40px; width:auto; margin-top:100px; box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);">
             <div class="d-flex flex-row" style="align-items: center;">
                 <img src="/images/arrow.png" style="width: 30px;" alt="">
-                <h6 class="fw-bold m-0" style="color:deepskyblue;">Kembali</h6>
+                <a href="<?= base_url('/e_response') ?>" style="text-decoration: none;"><h6 class="fw-bold m-0" style="color:deepskyblue;">Kembali</h6></a>
             </div>
             <hr>
             <header class="d-flex flex-row justify-content-center">
@@ -143,27 +163,32 @@
                 </h6>
                 <a class="ms-auto m-2" href="<?= base_url('pengajuan/tambah') ?>"><button class="btn btn-primary " type="submit">+  Tambah Pengajuan</button></a>
                 <table class="table">
-                <thead class="table-secondary align-middle" style="height: 60px;">
-                    <tr>
-                    <th scope="col" class="text-secondary">No</th>
-                    <th scope="col" class="text-secondary">ID Pengajuan</th>
-                    <th scope="col" class="text-secondary">Jenis Pengajuan</th>
-                    <th scope="col" class="text-secondary">Tanggal Pengajuan</th>
-                    <th scope="col" class="text-secondary">Status</th>
-                    <th scope="col" class="text-secondary">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Disetujui</td>
-                    <td>Tambah</td>
-                    </tr>
-                </tbody>
-                </table>
+                    <thead class="table-secondary align-middle" style="height: 60px;">
+                        <tr>
+                            <th scope="col" class="text-secondary">No</th>
+                            <th scope="col" class="text-secondary">ID Pengajuan</th>
+                            <th scope="col" class="text-secondary">Jenis Pengajuan</th>
+                            <th scope="col" class="text-secondary">Tanggal Pengajuan</th>
+                            <th scope="col" class="text-secondary">Status</th>
+                            <th scope="col" class="text-secondary">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($pengajuan as $index => $item) : ?>
+                            <tr>
+                                <th scope="row"><?= $index + 1 ?></th>
+                                <td><?= $item['id'] ?></td>
+                                <td>Tanya FT</td>
+                                <td><?= $item['created_at'] ?></td>
+                                <td><p class="approved-button">Disetujui</p></td>
+                                <td>
+                                    <a href="<?= base_url('/pengajuan/detailPengajuan/' . $item['id']) ?>" class="btn" style="background-color:mediumpurple;">Detail</a>
+                                    <a href="<?= base_url('/pengajuan/tanggapan/' . $item['id']) ?>" class="btn btn-info btn-sm">Tanggapan</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+            </table>
             </section>
         </div>
     </div>
